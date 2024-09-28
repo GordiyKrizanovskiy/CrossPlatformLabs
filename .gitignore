@@ -1,0 +1,14 @@
+# Build Folders
+bin/
+obj/
+
+# VS Code settings
+.vscode/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# Logs
+*.log
