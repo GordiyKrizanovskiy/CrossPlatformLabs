@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using GK;
 
 namespace lab3.Tests
 {
@@ -16,7 +17,7 @@ namespace lab3.Tests
                 new double[] { 2, 3 }
             };
 
-            double result = Program.FindMinimumRadius(cities, cities.Length);
+            double result = CityDistanceCalculator.FindMinimumRadius(cities, cities.Length); 
             Console.WriteLine($"Expected result: 2.24, Actual result: {result:F2}");
             Assert.Equal(2.24, result, 2);
         }
@@ -31,7 +32,7 @@ namespace lab3.Tests
                 new double[] { 4, 2 }
             };
 
-            double result = Program.FindMinimumRadius(cities, cities.Length);
+            double result = CityDistanceCalculator.FindMinimumRadius(cities, cities.Length);
             Console.WriteLine($"Expected result: 2.83, Actual result: {result:F2}");
             Assert.Equal(2.83, result, 2);
         }
@@ -48,11 +49,10 @@ namespace lab3.Tests
                 new double[] { 5, 5 }
             };
 
-            double result = Program.FindMinimumRadius(cities, cities.Length);
+            double result = CityDistanceCalculator.FindMinimumRadius(cities, cities.Length);
             Console.WriteLine($"Expected result: 7.07, Actual result: {result:F2}");
             Assert.Equal(7.07, result, 2);
         }
-
 
         [Fact]
         public void TestIdenticalCoordinates()
@@ -64,7 +64,7 @@ namespace lab3.Tests
                 new double[] { 0, 0 }
             };
 
-            double result = Program.FindMinimumRadius(cities, cities.Length);
+            double result = CityDistanceCalculator.FindMinimumRadius(cities, cities.Length);
             Console.WriteLine($"Expected result: 0.00, Actual result: {result:F2}");
             Assert.Equal(0.00, result, 2);
         }
@@ -77,7 +77,7 @@ namespace lab3.Tests
                 new double[] { 0, 0 }
             };
 
-            double result = Program.FindMinimumRadius(cities, cities.Length);
+            double result = CityDistanceCalculator.FindMinimumRadius(cities, cities.Length); 
             Console.WriteLine($"Expected result: 0.00, Actual result: {result:F2}");
             Assert.Equal(0.00, result, 2);
         }
