@@ -22,6 +22,7 @@
     </PropertyGroup>
 
     <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet pack $(PackageProject) -c Release" />
+        <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet nuget add source $(PackageOutput) -n LocalNugetRepo" />
     <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet add $(Lab3Project) package GK --source $(PackageOutput)" />
   </Target>
 
