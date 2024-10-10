@@ -1,14 +1,97 @@
 # .NET Core / ASP.NET Core
 bin/
 obj/
-
-# VS Code settings
-.vscode/
+out/
 
 # User-specific files
-*.user
 *.rsuser
 *.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotNet user secrets
+**/secrets.json
+
+# Rider
+.idea/
+*.sln.iml
 
 # Logs
 *.log
+
+# Visual Studio Code
+.vscode/
+
+# Local History for JetBrains IDEs
+.localhistory/
+
+# NCrunch
+*.ncrunch*
+_NCrunch_*
+
+# DotCover
+*.dotCover
+
+# Resharper
+*.ReSharper*
+*.[Rr]e[Ss]harper
+
+# TeamCity
+_TeamCity*
+
+# DotTrace
+*.dotTrace
+
+# Coverlet
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]ppPackages/
+[Aa]rtifacts/
+
+# Chutzpah Test files
+_Chutzpah/
+
+# Web projects
+node_modules/
+bower_components/
+wwwroot/lib/
+
+# Publish output
+*.publish.xml
+
+# Windows-specific files
+*.dbmdl
+*.dbproj.schemaview
+*.pfx
+*.publishsettings
+
+# Azure DevOps
+.vs/
