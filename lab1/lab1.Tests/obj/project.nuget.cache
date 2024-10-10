@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D0ykLwFM4ss=",
+  "dgSpecHash": "RNyWT8Dj2s0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gordi\\OneDrive\\Рабочий стол\\CrossPlatformLabs\\CrossPlatformLabs-3\\lab1\\lab1.Tests\\lab1.Tests.csproj",
+  "projectFilePath": "C:\\Users\\gordi\\OneDrive\\Рабочий стол\\CrossPlatformLabs\\CrossPlatformLabs-4\\lab1\\lab1.Tests\\lab1.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gordi\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\gordi\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",

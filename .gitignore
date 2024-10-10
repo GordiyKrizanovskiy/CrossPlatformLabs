@@ -1,3 +1,7 @@
+# .NET Core / ASP.NET Core
+bin/
+obj/
+
 # VS Code settings
 .vscode/
 
