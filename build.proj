@@ -4,23 +4,33 @@
     <Solution Condition=" '$(Solution)' == '' "></Solution>
   </PropertyGroup>
 
-   <ItemGroup>
-      <ProjectFile Include="$(Solution)\*.csproj" />
-   </ItemGroup>
+  <ItemGroup>
+    <ProjectFile Include="$(Solution)\*.csproj" />
+  </ItemGroup>
 
   <Target Name="Build">
     <PropertyGroup>
       <BuildProject>$(Solution)\$(Solution)\$(Solution).csproj</BuildProject>
     </PropertyGroup>
     <MSBuild Projects="$(BuildProject)" Targets="Restore;Build" />
+
+    <!-- Автоматизація NuGet тільки для lab3 -->
+    <PropertyGroup Condition=" '$(Solution)' == 'lab3' ">
+      <PackageProject>$(Solution)\GK\GK.csproj</PackageProject>
+      <PackageOutput>$(Solution)\GK\bin\Release</PackageOutput>
+      <Lab3Project>$(Solution)\$(Solution)\$(Solution).csproj</Lab3Project>
+    </PropertyGroup>
+
+    <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet pack $(PackageProject) -c Release" />
+    <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet add $(Lab3Project) package GK --source $(PackageOutput)" />
   </Target>
 
-   <Target Name="Run">
-      <PropertyGroup>
-         <RunProject>$(Solution)\$(Solution).csproj</RunProject>
-      </PropertyGroup>
-      <Exec Command="dotnet run --project &quot;$(RunProject)&quot;" WorkingDirectory="$(Solution)" />
-   </Target>
+  <Target Name="Run">
+    <PropertyGroup>
+      <RunProject>$(Solution)\$(Solution).csproj</RunProject>
+    </PropertyGroup>
+    <Exec Command="dotnet run --project &quot;$(RunProject)&quot;" WorkingDirectory="$(Solution)" />
+  </Target>
 
   <Target Name="Test">
     <PropertyGroup>
@@ -28,6 +38,5 @@
     </PropertyGroup>
     <Exec Command="dotnet test $(TestProject) --logger:console;verbosity=detailed" />
   </Target>
-
 
 </Project>
