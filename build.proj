@@ -13,17 +13,6 @@
       <BuildProject>$(Solution)\$(Solution)\$(Solution).csproj</BuildProject>
     </PropertyGroup>
     <MSBuild Projects="$(BuildProject)" Targets="Restore;Build" />
-
-    <!-- Автоматизація NuGet тільки для lab3 -->
-    <PropertyGroup Condition=" '$(Solution)' == 'lab3' ">
-      <PackageProject>$(Solution)\GK\GK.csproj</PackageProject>
-      <PackageOutput>$(Solution)\GK\bin\Release</PackageOutput>
-      <Lab3Project>$(Solution)\$(Solution)\$(Solution).csproj</Lab3Project>
-    </PropertyGroup>
-
-    <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet pack $(PackageProject) -c Release" />
-        <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet nuget add source $(PackageOutput) -n LocalNugetRepo" />
-    <Exec Condition=" '$(Solution)' == 'lab3' " Command="dotnet add $(Lab3Project) package GK --source $(PackageOutput)" />
   </Target>
 
   <Target Name="Run">
