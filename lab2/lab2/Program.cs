@@ -1,4 +1,5 @@
-﻿public class Program
+﻿namespace lab2;
+public class Program
 {
     public static int MinimumOperations(int N)
     {

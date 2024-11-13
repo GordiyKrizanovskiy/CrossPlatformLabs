@@ -15,6 +15,30 @@
   <Exec Command="dotnet add ./lab3/lab3/lab3.csproj package GK --source ./lab3/GK/bin/Release/" />
 </Target>
 
+  <Target Name="PrepareAllLabs" Condition=" '$(Solution)' == 'Lab4' ">
+    <!-- Будуємо всі лабораторні проекти -->
+    <Exec Command="dotnet build ./lab1/lab1/lab1.csproj -c Release" />
+    <Exec Command="dotnet build ./lab2/lab2/lab2.csproj -c Release" />
+    <Exec Command="dotnet build ./lab3/lab3/lab3.csproj -c Release" />
+    
+    <!-- Пакуємо проект GK для NuGet -->
+    <Exec Command="dotnet pack ./lab3/GK/GK.csproj -c Release" />
+    
+    <!-- Налаштовуємо локальне NuGet-джерело -->
+    <Exec Command="dotnet nuget remove source LocalNugetRepo" ContinueOnError="true" />
+    <Exec Command="dotnet nuget add source ./lab3/GK/bin/Release/ -n LocalNugetRepo" />
+    
+    <!-- Додаємо NuGet-пакет GK як залежність для всіх лабораторних проектів, які його потребують -->
+    <Exec Command="dotnet add ./lab3/lab3/lab3.csproj package GK --source ./lab3/GK/bin/Release/" />
+    <Exec Command="dotnet add ./lab4/lab4.csproj package GK --source ./lab3/GK/bin/Release/" />
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="PrepareAllLabs">
+    <PropertyGroup>
+      <BuildProject>$(Solution)\$(Solution)\$(Solution).csproj</BuildProject>
+    </PropertyGroup>
+    <MSBuild Projects="$(BuildProject)" Targets="Restore;Build" />
+  </Target>
 
   <Target Name="Build" DependsOnTargets="PrepareLab3">
     <PropertyGroup>
