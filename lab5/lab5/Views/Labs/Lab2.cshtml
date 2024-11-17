@@ -1,0 +1,18 @@
+﻿<h2>Lab 2</h2>
+
+<form method="post">
+    <div>
+        <label for="inputFilePath">Шлях до файлу введення:</label>
+        <input type="text" name="inputFilePath" required />
+    </div>
+    <div>
+        <label for="outputFilePath">Шлях до файлу виведення:</label>
+        <input type="text" name="outputFilePath" required />
+    </div>
+    <button type="submit">Запустити Lab2</button>
+</form>
+
+@if (ViewBag.ResultMessage != null)
+{
+<p>@ViewBag.ResultMessage</p>
+}
