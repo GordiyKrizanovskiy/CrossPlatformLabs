@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using Library; 
+using Library;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
 
 namespace WebAppProject.Controllers
 {
     [Authorize]
     public class LabsController : Controller
     {
-        // ����� ��� ����������� ������ ����������� ������
+        // Головна сторінка лабораторних
         public IActionResult Index()
         {
             return View();
@@ -26,7 +27,18 @@ namespace WebAppProject.Controllers
             string[] args = { "-I", inputFilePath, "-o", outputFilePath };
             Lab1Runner.Run(args);
 
-            ViewBag.ResultMessage = $"��������� Lab1 ��������� � {outputFilePath}";
+            ViewBag.ResultMessage = $"Роботу Lab1 виконано. Результати записано у файл {outputFilePath}";
+
+            // Зчитуємо результати з файлу
+            if (System.IO.File.Exists(outputFilePath))
+            {
+                ViewBag.OutputContent = System.IO.File.ReadAllText(outputFilePath);
+            }
+            else
+            {
+                ViewBag.OutputContent = "Файл результату не знайдено.";
+            }
+
             return View();
         }
 
@@ -43,7 +55,18 @@ namespace WebAppProject.Controllers
             string[] args = { "-I", inputFilePath, "-o", outputFilePath };
             Lab2Runner.Run(args);
 
-            ViewBag.ResultMessage = $"��������� Lab2 ��������� � {outputFilePath}";
+            ViewBag.ResultMessage = $"Роботу Lab2 виконано. Результати записано у файл {outputFilePath}";
+
+            // Зчитуємо результати з файлу
+            if (System.IO.File.Exists(outputFilePath))
+            {
+                ViewBag.OutputContent = System.IO.File.ReadAllText(outputFilePath);
+            }
+            else
+            {
+                ViewBag.OutputContent = "Файл результату не знайдено.";
+            }
+
             return View();
         }
 
@@ -60,7 +83,18 @@ namespace WebAppProject.Controllers
             string[] args = { "-I", inputFilePath, "-o", outputFilePath };
             Lab3Runner.Run(args);
 
-            ViewBag.ResultMessage = $"��������� Lab3 ��������� � {outputFilePath}";
+            ViewBag.ResultMessage = $"Роботу Lab3 виконано. Результати записано у файл {outputFilePath}";
+
+            // Зчитуємо результати з файлу
+            if (System.IO.File.Exists(outputFilePath))
+            {
+                ViewBag.OutputContent = System.IO.File.ReadAllText(outputFilePath);
+            }
+            else
+            {
+                ViewBag.OutputContent = "Файл результату не знайдено.";
+            }
+
             return View();
         }
     }
