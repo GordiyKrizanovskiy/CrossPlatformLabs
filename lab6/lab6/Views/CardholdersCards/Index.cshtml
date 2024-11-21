@@ -1,0 +1,22 @@
+<h1>Cardholders Cards</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Card Number</th>
+            <th>Cardholder</th>
+            <th>Currency</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var card in Model)
+        {
+            <tr>
+                <td>@card.CardNumber</td>
+                <td>@card.Cardholder.AccountNr</td>
+                <td>@card.Currency.Description</td> <!-- Оновлено -->
+                <td><a href="/cardholders-cards/@card.CardNumber">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

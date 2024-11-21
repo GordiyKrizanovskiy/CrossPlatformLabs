@@ -1,0 +1,20 @@
+﻿<h1>Card Types</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CardTypeCode</td>
+                <td>@item.Description</td>
+                <td><a href="/ref-card-types/@item.CardTypeCode">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

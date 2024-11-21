@@ -1,6 +1,6 @@
 using System.Security.Claims;
-using Lab5.Models;
-using Lab5.Services;
+using Lab6.Models;
+using Lab6.Services;
 using Auth0.AuthenticationApi;
 using Auth0.AuthenticationApi.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Lab5.Controllers;
+namespace Lab6.Controllers;
 
 public class AuthController : Controller
 {
@@ -107,7 +107,7 @@ public class AuthController : Controller
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, userInfo.UserId),
+                new Claim(ClaimTypes.NameIdentifier, userInfo.UserId), 
                 new Claim(ClaimTypes.Name, userInfo.Email ?? model.Email)
             };
 

@@ -1,0 +1,23 @@
+<h1>Search Results</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Card Number</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.TransactionId</td>
+                <td>@transaction.Card.CardNumber</td>
+                <td>@transaction.TransactionDate</td>
+                <td>@transaction.Amount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/transactions/search">Back to search</a>

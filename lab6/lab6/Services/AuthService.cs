@@ -1,10 +1,10 @@
-using Lab5.Models;
+using Lab6.Models;
 using Auth0.AuthenticationApi;
 using Auth0.AuthenticationApi.Models;
 using Auth0.ManagementApi;
 using Auth0.ManagementApi.Models;
 
-namespace Lab5.Services;
+namespace Lab6.Services;
 
 public class AuthService(IConfiguration configuration)
 {
@@ -40,7 +40,7 @@ public class AuthService(IConfiguration configuration)
         }
     }
 
-    public async Task<Lab5.Models.User?> GetUserAsync(string id)
+    public async Task<Lab6.Models.User?> GetUserAsync(string id)
     {
         try
         {
@@ -56,7 +56,7 @@ public class AuthService(IConfiguration configuration)
             }
 
             Console.WriteLine($"User found: {auth0User.UserId}");
-            return new Lab5.Models.User
+            return new Lab6.Models.User
             {
                 Id = auth0User.UserId,
                 UserName = auth0User.UserMetadata?["username"]?.ToString() ?? string.Empty,

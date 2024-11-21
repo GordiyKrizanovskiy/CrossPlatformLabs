@@ -1,0 +1,21 @@
+<h1>Currency Codes</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CurrencyCode</td>
+                <td>@item.Description</td>
+                <td><a href="/ref-currency-codes/@item.CurrencyCode">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/">Back to Home</a>
