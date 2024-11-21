@@ -3,7 +3,7 @@ using Library;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
 
-namespace WebAppProject.Controllers
+namespace Lab5.Controllers
 {
     [Authorize]
     public class LabsController : Controller
