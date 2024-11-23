@@ -1,0 +1,15 @@
+@model dynamic
+
+<h2>Bank Details</h2>
+<p><strong>ID:</strong> @Model.bankId</p>
+<p><strong>Bank Name:</strong> @Model.bankName</p>
+
+<h3>Associated Cardholders</h3>
+<ul>
+    @foreach (var cardholder in Model.cardholdersBanks)
+    {
+        <li>@cardholder.cardholder.accountNumber</li>
+    }
+</ul>
+
+<a href="/Banks">Back to List</a>

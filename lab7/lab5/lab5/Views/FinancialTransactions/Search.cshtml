@@ -1,0 +1,45 @@
+@model dynamic
+
+<h2>Search Financial Transactions</h2>
+
+<form method="get" action="/FinancialTransactions/Search">
+    <label>Merchant ID:</label>
+    <input type="text" name="merchantId" />
+
+    <label>Currency Code:</label>
+    <input type="text" name="currencyCode" />
+
+    <button type="submit">Search</button>
+</form>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h3>Search Results:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ATM ID</th>
+                <th>Card Number</th>
+                <th>Merchant ID</th>
+                <th>Currency</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model)
+            {
+                <tr>
+                    <td>@transaction.transactionId</td>
+                    <td>@transaction.atmId</td>
+                    <td>@transaction.cardNumber</td>
+                    <td>@transaction.merchantId</td>
+                    <td>@transaction.currencyCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No results found. Please refine your search criteria.</p>
+}

@@ -1,0 +1,26 @@
+@model dynamic
+
+<h2>Cardholders</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Account Number</th>
+            <th>Country Code</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cardholder in Model)
+        {
+            <tr>
+                <td>@cardholder.cardholderId</td>
+                <td>@cardholder.accountNumber</td>
+                <td>@cardholder.countryCode</td>
+                <td>
+                    <a href="/Cardholders/Details/@cardholder.cardholderId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

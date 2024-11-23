@@ -1,0 +1,30 @@
+@model dynamic
+
+<h2>Financial Transactions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ATM ID</th>
+            <th>Card Number</th>
+            <th>Merchant ID</th>
+            <th>Currency</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.transactionId</td>
+                <td>@transaction.atmId</td>
+                <td>@transaction.cardNumber</td>
+                <td>@transaction.merchantId</td>
+                <td>@transaction.currencyCode</td>
+                <td>
+                    <a href="/FinancialTransactions/Details/@transaction.transactionId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

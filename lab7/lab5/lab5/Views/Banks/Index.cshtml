@@ -1,0 +1,24 @@
+@model dynamic
+
+<h2>Banks</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Bank Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bank in Model)
+        {
+            <tr>
+                <td>@bank.bankId</td>
+                <td>@bank.bankName</td>
+                <td>
+                    <a href="/Banks/Details/@bank.bankId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
