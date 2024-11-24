@@ -1,0 +1,16 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab9.Views.AboutPage"
+             Title="About">
+    <StackLayout Padding="20">
+        <Label Text="Lab9 - Cross-platform Client for API"
+               FontSize="24"
+               HorizontalOptions="Center" />
+        <Label Text="Version: 1.0.0"
+               FontSize="18"
+               HorizontalOptions="Center" />
+        <Label Text="Developed using MAUI"
+               FontSize="14"
+               HorizontalOptions="Center" />
+    </StackLayout>
+</ContentPage>
